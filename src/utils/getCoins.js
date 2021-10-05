@@ -16,7 +16,7 @@ async function getCoins({currency="usd", limitPerPage=20, page=1}) {
 
     return data
   }catch(e) {
-    console.log(e)
+ 
     throw new Error(e)
   }
 }

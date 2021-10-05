@@ -22,10 +22,14 @@ h2 {
 
 .coins__pagination {
   margin: 20px auto 30px auto;
+  display: flex;
   width: fit-content;
 }
 
 .coins__pagination-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   width: 30px;
   height: 30px;

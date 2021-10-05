@@ -4,7 +4,9 @@ import "./header.css";
 function Header() {
   return (
     <header className="header">
-      <h1 className="header__logo">CoinTest</h1>
+      <a href="/home">
+        <h1 className="header__logo">CoinTest</h1>
+      </a>
       <nav className="header__menu">
         <ul>
           {listOfPages.map((page, i) => (
@@ -26,5 +28,5 @@ const listOfPages = [
   "Intercambios",
   "NFT",
   "Portafolio",
-  "Lista de seguimiento",
+  "Lista de seguimiento ▼",
 ];

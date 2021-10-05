@@ -39,6 +39,7 @@ function ListOfCoins() {
         coins.map((coin) => (
           <CoinRow
             key={coin.id}
+            id={coin.id.toLowerCase()}
             rank={coin.market_cap_rank}
             image={coin.image}
             price={coin.current_price}
@@ -79,7 +80,6 @@ function ListOfCoins() {
           <GrFormNext />
         </button>
       </div>
-      <CreateChart />
     </section>
   );
 }

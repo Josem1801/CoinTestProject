@@ -2,8 +2,18 @@ import React from "react";
 import FavoriteIcon from "../FavoriteIcon";
 import "./coinRow.css";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-function CoinRow({ rank, image, price, name, symbol, marketCap, dayPercent }) {
+function CoinRow({
+  id,
+  rank,
+  image,
+  price,
+  name,
+  symbol,
+  marketCap,
+  dayPercent,
+}) {
   const color = dayPercent >= 0 ? "green" : "red";
 
   //function to format number with commas
@@ -15,11 +25,11 @@ function CoinRow({ rank, image, price, name, symbol, marketCap, dayPercent }) {
       <div className="row">
         <FavoriteIcon />
         <span>{rank}</span>
-        <a href={`/${name}`}>
+        <Link to={`/currencies/${id}`}>
           <img width={30} height={30} src={image} alt={name} />
-        </a>
-        <a href={`/${name}`}>{name}</a>
-        <a href={`/${name}`}>{symbol.toUpperCase()}</a>
+        </Link>
+        <Link to={`/currencies/${id}`}>{name}</Link>
+        <Link to={`/currencies/${id}`}>{symbol.toUpperCase()}</Link>
         <span onChange={() => "Hola, estoy cambiando de precio c:"}>
           ${formatNumber(price)}
         </span>

@@ -1,5 +1,6 @@
-import Detail from 'pages/Detail';
-import Home from 'pages/Home';
+import Header from 'components/Header';
+import Detail from 'pages/detail';
+import Home from 'pages/home';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
@@ -10,14 +11,18 @@ import {
 } from "react-router-dom";
 ReactDOM.render(
   <React.StrictMode>
+    <Header/>
     <Router>
       <Switch>
         <Route path='/home'>
           <Home/>
         </Route>
-        <Route path="/:cripto" component={Detail}/>
+        <Route path="/currencies/:currency" component={Detail}/>
         <Route path='/'>
-          <Redirect to='home'/>
+          <Redirect to='/home'/>
+        </Route>
+        <Route path="/home/:letters" >
+          <Redirect to='/home'/>
         </Route>
       </Switch>
     </Router>

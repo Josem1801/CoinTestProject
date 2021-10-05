@@ -1,41 +1,25 @@
+import "./customTooltip.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { subDays } from "data-fns";
-import {
-  ResponsiveContainer,
-  AreaChart,
-  XAxis,
-  YAxis,
-  Area,
-  Tooltip,
-  CartesianAxis,
-} from "recharts";
-function CreateChart() {
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    const data = axios
-      .get(
-        "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=114&interval=minutely"
-      )
-      .then(({ data: { prices } }) => {
-        const newData = prices.map((arr) => {
-          return {
-            date: new Date(arr[0]).toISOString().substr(0, 10),
-            value: arr[1],
-          };
-        });
-        setData(newData);
-      });
-  }, []);
+import { ResponsiveContainer, AreaChart, YAxis, Area, Tooltip } from "recharts";
+function CreateChart({ data }) {
   return (
     <div>
-      <ResponsiveContainer width="50%" height={300}>
+      <ResponsiveContainer
+        className="chart__container"
+        width="100%"
+        height={300}
+      >
         <AreaChart data={data}>
-          <Area dataKey="value" />
-          <XAxis dataKey="date" />
-          <YAxis dataKey="value" />
-          <Tooltip />
+          <YAxis />
+          <Tooltip content={<CustomTooltip />} />
+          <Area
+            type="monotone"
+            dataKey="value"
+            stroke="#ffffff"
+            fill="#0093e9"
+          />
         </AreaChart>
       </ResponsiveContainer>
     </div>
@@ -43,3 +27,18 @@ function CreateChart() {
 }
 
 export default CreateChart;
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <p className="date">{payload[0].payload.date.replace(/-/g, "/")}</p>
+        <p className="title">
+          Price : <span>${payload[0].value.toFixed(8)}</span>
+        </p>
+      </div>
+    );
+  }
+
+  return null;
+};

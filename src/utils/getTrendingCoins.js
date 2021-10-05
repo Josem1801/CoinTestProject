@@ -7,7 +7,7 @@ async function getTrendingCoins() {
     const {data: {coins}} = await axios.get("https://api.coingecko.com/api/v3/search/trending")
     return coins
   }catch(e) {
-    console.log(e)
+
     throw new Error("Error", e)
   }
 }
