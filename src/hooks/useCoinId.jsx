@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 function useCoinId({ id }) {
   const [coinData, setCoinData] = useState([]);
@@ -18,7 +18,7 @@ function useCoinId({ id }) {
         setCoinData(404);
         setLoadingCoinsData(false);
       });
-  }, []);
+  }, [id]);
   return { coinData, loadingCoinsData };
 }
 

@@ -1,7 +1,5 @@
 import "./customTooltip.css";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { subDays } from "data-fns";
+import React from "react";
 import { ResponsiveContainer, AreaChart, YAxis, Area, Tooltip } from "recharts";
 function CreateChart({ data }) {
   return (

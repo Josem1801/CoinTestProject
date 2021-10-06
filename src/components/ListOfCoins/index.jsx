@@ -1,10 +1,9 @@
-import React, { useCallback } from "react";
+import React from "react";
 import useCoins from "hooks/useCoins";
 import CoinRow from "../CoinRow";
 import Loader from "../Loader";
 import "./listOfCoins.css";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
-import CreateChart from "components/CreateChart";
 function ListOfCoins() {
   const { coins, loading, setPagination, pagination } = useCoins();
 

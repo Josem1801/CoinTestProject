@@ -4,6 +4,24 @@
   min-height: 100vh;
   box-sizing: border-box;
   transition: 0.5s;
+  overflow: auto;
+  margin-bottom: 10px;
+}
+.coins::-webkit-scrollbar {
+  width: 8px;
+  height: 6px;
+  background: rgb(97, 97, 97);
+}
+.coins::-webkit-scrollbar-thumb {
+  background: rgb(63, 146, 255);
+  border-radius: 8px;
+}
+.coins::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.2);
+}
+.coins::-webkit-scrollbar-thumb:active {
+  background-color: white;
 }
 h2 {
   padding: 15px;
@@ -21,7 +39,7 @@ h2 {
 }
 
 .coins__pagination {
-  margin: 20px auto 30px auto;
+  margin: 20px auto 20px auto;
   display: flex;
   width: fit-content;
 }

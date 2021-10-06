@@ -1,7 +1,7 @@
 import CreateChart from "components/CreateChart";
 import useDataForChart from "hooks/useDataForChart";
 import NotFound from "components/NotFound";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router";
 import Loader from "components/Loader";
 import useCoinId from "hooks/useCoinId";
@@ -22,7 +22,6 @@ function Detail() {
     if (day <= 7) setInterval("minutely");
     if (day === 30) setInterval("hourly");
     if (day > 30) setInterval("daily");
-
     setDays(day);
   };
   return (
@@ -72,12 +71,16 @@ function Detail() {
                   className={`${date === days && "day-active"}`}
                   onClick={() => handleDays(date)}
                 >
-                  {date > 7 && date < 364 ? date / 30 : date == 364 ? 1 : date}
+                  {date > 7 && date < 364 ? date / 30 : date === 364 ? 1 : date}
                   {letterDate[i]}
                 </button>
               ))}
             </div>
-            <CreateChart data={chartData} />
+            {loadingChart ? (
+              <Loader variant="simple" />
+            ) : (
+              <CreateChart data={chartData} />
+            )}
           </section>
         </>
       )}

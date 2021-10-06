@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 /**
@@ -33,7 +33,7 @@ function useDataForChart({ currency, days = 1, interval = "minutely" }) {
         setChartData(404);
         setLoadingChart(false);
       });
-  }, [days]);
+  }, [days, currency, interval]);
   return { chartData, loadingChart };
 }
 

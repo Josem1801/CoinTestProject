@@ -1,4 +1,3 @@
-import Header from "components/Header";
 import ListOfCoins from "components/ListOfCoins";
 import TrendingCoins from "components/TrendingCoins";
 import React from "react";
