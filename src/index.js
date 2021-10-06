@@ -1,6 +1,6 @@
 import Header from './components/Header/index';
-import Home from './pages/home';
-import Detail from './pages/detail';
+import Home from './pages/home/index';
+import Detail from './pages/detail/index';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
