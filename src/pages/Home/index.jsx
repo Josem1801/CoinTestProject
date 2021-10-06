@@ -1,5 +1,5 @@
-import ListOfCoins from "./components/ListOfCoins";
-import TrendingCoins from "./components/TrendingCoins";
+import ListOfCoins from "components/ListOfCoins";
+import TrendingCoins from "components/TrendingCoins";
 import React from "react";
 import "./home.css";
 function Home() {
