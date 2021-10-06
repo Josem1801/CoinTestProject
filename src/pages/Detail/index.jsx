@@ -1,10 +1,10 @@
-import CreateChart from "components/CreateChart";
-import useDataForChart from "hooks/useDataForChart";
-import NotFound from "components/NotFound";
+import CreateChart from "./components/CreateChart";
+import useDataForChart from "./hooks/useDataForChart";
+import NotFound from "./components/NotFound";
 import React, { useState } from "react";
 import { useParams } from "react-router";
-import Loader from "components/Loader";
-import useCoinId from "hooks/useCoinId";
+import Loader from "./components/Loader";
+import useCoinId from "./hooks/useCoinId";
 import "./detail.css";
 function Detail() {
   const [days, setDays] = useState(1);
