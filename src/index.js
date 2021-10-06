@@ -7,8 +7,8 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import Detail from './pages/detail';
-import Home from './pages/home';
+import Detail from './pages/detail/index';
+import Home from './pages/home/index';
 ReactDOM.render(
   <React.StrictMode>
     <Header/>
