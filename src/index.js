@@ -7,16 +7,14 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import Home from './pages/home';
 import Detail from './pages/detail';
+import Home from './pages/home';
 ReactDOM.render(
   <React.StrictMode>
     <Header/>
     <Router>
       <Switch>
-        <Route path='/home'>
-          <Home/>
-        </Route>
+        <Route path='/home' component={Home}/>
         <Route path="/currencies/:currency" component={Detail}/>
         <Route path='/'>
           <Redirect to='/home'/>

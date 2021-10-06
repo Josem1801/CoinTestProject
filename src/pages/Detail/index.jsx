@@ -16,7 +16,7 @@ function Detail() {
     days,
     interval,
   });
-  const { coinData, loadingCoinsData } = useCoinId({ id: currency });
+  const { coinData } = useCoinId({ id: currency });
   const letterDate = ["H", "D", "M", "M", "Y"];
   const handleDays = (day) => {
     if (day <= 7) setInterval("minutely");
