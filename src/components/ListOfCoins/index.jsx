@@ -1,7 +1,7 @@
 import React from "react";
-import useCoins from "src/hooks/useCoins";
-import CoinRow from "src/components/CoinRow";
-import Loader from "src/components/Loader";
+import useCoins from "../../hooks/useCoins";
+import CoinRow from "../CoinRow";
+import Loader from "../Loader";
 import "./listOfCoins.css";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 function ListOfCoins() {

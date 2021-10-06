@@ -1,11 +1,11 @@
-import CreateChart from "src/components/CreateChart";
-import useDataForChart from "src/hooks/useDataForChart";
-import NotFound from "src/components/NotFound";
+import useDataForChart from "../../hooks/useDataForChart";
+import NotFound from "../../components/NotFound";
 import React, { useState } from "react";
 import { useParams } from "react-router";
-import Loader from "src/components/Loader";
-import useCoinId from "src/hooks/useCoinId";
+import Loader from "../../components/Loader";
+import useCoinId from "../../hooks/useCoinId";
 import "./detail.css";
+import CreateChart from "../../components/CreateChart";
 function Detail() {
   const [days, setDays] = useState(1);
   const [interval, setInterval] = useState("minutely");
@@ -26,10 +26,10 @@ function Detail() {
   };
   return (
     <main className="detail">
-      {loadingCoinsData ? (
-        <Loader />
-      ) : coinData === 404 || coinData.length <= 0 ? (
+      {coinData === 404 ? (
         <NotFound />
+      ) : coinData < 1 ? (
+        <Loader />
       ) : (
         <>
           <section className="detail__hero">
@@ -64,26 +64,27 @@ function Detail() {
             </div>
           </section>
           <section className="detail__price"></section>
-          <section className="detail__chart">
-            <div className="detail__chart-date">
-              {[1, 7, 30, 90, 364].map((date, i) => (
-                <button
-                  className={`${date === days && "day-active"}`}
-                  onClick={() => handleDays(date)}
-                >
-                  {date > 7 && date < 364 ? date / 30 : date === 364 ? 1 : date}
-                  {letterDate[i]}
-                </button>
-              ))}
-            </div>
-            {loadingChart ? (
-              <Loader variant="simple" />
-            ) : (
-              <CreateChart data={chartData} />
-            )}
-          </section>
         </>
       )}
+      <section className="detail__chart">
+        <div className="detail__chart-date">
+          {[1, 7, 30, 90, 364].map((date, i) => (
+            <button
+              key={i}
+              className={`${date === days && "day-active"}`}
+              onClick={() => handleDays(date)}
+            >
+              {date > 7 && date < 364 ? date / 30 : date === 364 ? 1 : date}
+              {letterDate[i]}
+            </button>
+          ))}
+        </div>
+        {loadingChart ? (
+          <Loader variant="simple" />
+        ) : (
+          <CreateChart data={chartData} />
+        )}
+      </section>
     </main>
   );
 }

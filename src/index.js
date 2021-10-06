@@ -1,6 +1,4 @@
-import Header from 'src/components/Header';
-import Home from 'src/pages/home';
-import Detail from 'src/pages/detail';
+import Header from './components/Header';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
@@ -9,6 +7,8 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
+import Home from './pages/home';
+import Detail from './pages/detail';
 ReactDOM.render(
   <React.StrictMode>
     <Header/>
