@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import getTrendingCoins from "utils/getTrendingCoins";
+import getTrendingCoins from "src/utils/getTrendingCoins";
 
 function useTrendingCoins() {
   const [trending, setTrending] = useState([]);

@@ -1,4 +1,4 @@
-import useTrendingCoins from "hooks/useTrendingCoins";
+import useTrendingCoins from "src/hooks/useTrendingCoins";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./trendingCoins.css";

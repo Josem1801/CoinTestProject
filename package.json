@@ -18,9 +18,6 @@
     "recharts": "^2.1.4",
     "web-vitals": "^1.0.1"
   },
-  "exports": {
-    "./*": "./*"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
